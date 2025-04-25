@@ -30,8 +30,8 @@ import seaborn as sns
 import pandas as pd
 import os
 
-PreTRAIN = False
-SEED = 50
+PreTRAIN = True
+SEED = 1
 
 set_seed(SEED)
 
@@ -253,7 +253,7 @@ class Cluster_loss(nn.Module):
         
         loss3 = F.mse_loss(hat_a, a) + F.mse_loss(hat_p, p)  + F.mse_loss(hat_n, n)
 
-        return loss1 + loss2 + GAMMA*loss3
+        return GAMMA*loss1 + GAMMA*loss2 + loss3
 #----------------------------------------------------------------------------
 
 #************************************************************************
